@@ -20,6 +20,27 @@ The project steward with journalistic experience from CBC's The Fifth Estate has
     - run by passionate individuals with their own intrinsic motivations
   - :bulb: there may be ways to help unofficial efforts better integrate with official ones
 
+## Usage
+
+Requirements:
+- Python 3.3+ (can be installed via `pyenv` recommendation)
+- `pipenv`: A package manager for locking specific versions of dependencies
+    - e.g., `brew install pipenv`
+- `make`
+- Chrome browser
+
+Recommendations:
+- `pyenv`: for managing/installing multiple python versions.
+    - e.g., `brew install pyenv`
+    - then `pyenv install --skip-existing` within this project, to install a known-good version of Python.
+
+```
+make setup
+make install
+```
+
+Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
+
 ## Get Involved
 
 The following is current as of Tue, May 3, 2022. (We expect to run the project for at least one month.)
