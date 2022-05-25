@@ -1032,7 +1032,7 @@ def scrub_output_pre_save(model, **kwargs):
         cell['execution_count'] = None
 
 # Don't clear out 
-# c.FileContentsManager.pre_save_hook = scrub_output_pre_save
+c.FileContentsManager.pre_save_hook = scrub_output_pre_save
 
 #  Default: '/'
 # c.ContentsManager.root_dir = '/'
