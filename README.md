@@ -24,6 +24,27 @@ The project steward with journalistic experience from CBC's The Fifth Estate has
 
 ## Usage
 
+These instructions assume using `pipenv`, but it can be done without
+
+Requirements:
+- Python 3.3+ (can be installed via `pyenv` recommendation)
+- `pipenv`: A package manager for locking specific versions of dependencies
+    - e.g., `brew install pipenv`
+- `make`
+- Chrome browser
+
+Recommendations:
+- `pyenv`: for managing/installing multiple python versions.
+    - e.g., `brew install pyenv`
+    - then `pyenv install --skip-existing` within this project, to install a known-good version of Python.
+
+```
+make setup
+make install
+```
+
+Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
+
 ### 1. Web Scraping - Setting up Jupyter Notebooks & Selenium
 
 The required packages can be found in requirments.txt, bs4 and selenium are the main non-standard packages needed. 
@@ -45,7 +66,6 @@ Selenium requires its own special browser - called a driver - to run the instruc
 **Selenium Browser Download:** https://chromedriver.storage.googleapis.com/index.html?path=102.0.5005.27/
 **Anaconda:** https://www.anaconda.com/products/distribution
 **Jupyter Notebook:** https://jupyter.org/install
-
 
 ## Get Involved
 
