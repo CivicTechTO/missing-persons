@@ -37,12 +37,36 @@ Recommendations:
     - e.g., `brew install pyenv`
     - then `pyenv install --skip-existing` within this project, to install a known-good version of Python.
 
+To list all available commands, run `make` (without any arguments):
+
 ```
-make setup
-make install
+$ make
+Usage: make <command>
+
+where <command> is one of the following:
+
+open-viewer          Open the notebook in an interactive viewer
+run-code             Run the notebook's code in terminal (without viewer)
 ```
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
+
+## Scheduled Cloud Run
+
+This scraper is intended to be run nightly in a cloud environment. We use GitHub Actions for this.
+
+Configuration: [`.github/workflows/scrape.yml`](/.github/workflows/scrape.yml)  
+Run History: [GitHub Action runs](https://github.com/CivicTechTO/missing-persons/actions/workflows/scrape.yml)
+
+Each successful script run in the cloud environment will save a zip file of the
+generated files. You can find this on the "Summary" page of any workflow run.
+
+For example:
+https://github.com/CivicTechTO/missing-persons/actions/runs/2382053305
+
+While this workflow will run automatically each night, you can force a run
+anytime. To do this, push to any branch a commit with `[force ci]` in the most
+recent commit message.
 
 ### 1. Web Scraping - Setting up Jupyter Notebooks & Selenium
 
