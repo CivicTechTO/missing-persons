@@ -37,9 +37,16 @@ Recommendations:
     - e.g., `brew install pyenv`
     - then `pyenv install --skip-existing` within this project, to install a known-good version of Python.
 
+To list all available commands, run `make` (without any arguments):
+
 ```
-make setup
-make install
+$ make
+Usage: make <command>
+
+where <command> is one of the following:
+
+open-viewer          Open the notebook in an interactive viewer
+run-code             Run the notebook's code in terminal (without viewer)
 ```
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.

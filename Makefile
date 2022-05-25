@@ -1,8 +1,11 @@
-setup: ## Install packages via pipenv
+setup:
 	pipenv install
 
-open: ## Start the Jupyter notebook
+open-viewer: setup ## Open the notebook in an interactive viewer
 	pipenv run jupyter notebook MissingPersons_DataExtract_Tom_May10.ipynb --config jupyter_notebook_config.py
+
+run-code: setup ## Run the notebook's code in terminal (without viewer)
+	pipenv run jupyter nbconvert --to notebook --execute MissingPersons_DataExtract_Tom_May10.ipynb
 
 %:
 	@true
