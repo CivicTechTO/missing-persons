@@ -15,7 +15,6 @@ The project steward with journalistic experience from CBC's The Fifth Estate has
 - :bulb: scraping the data would make it more accessible to various efforts
 - :bulb: building a better front-end may support case closure by improving likelihood of matching missing persons cases to remains
   - Create a matching tool that limits the possible matches for each unidentified remains record based on things like gender, age, race, location
-
 - potential future opportunities
   - various ad-hoc efforts exist for tracking missing persons data (e.g., Facebook groups)
     - unofficial and create unstructured data (unlike official database)
