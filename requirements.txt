@@ -7,7 +7,7 @@ backports.functools-lru-cache @ file:///home/conda/feedstock_root/build_artifact
 beautifulsoup4 @ file:///home/conda/feedstock_root/build_artifacts/beautifulsoup4_1601745390275/work
 bleach @ file:///home/conda/feedstock_root/build_artifacts/bleach_1629908509068/work
 brotlipy==0.7.0
-certifi==2021.10.8
+certifi==2022.5.18.1
 cffi @ file:///D:/bld/cffi_1625835497933/work
 chardet @ file:///D:/bld/chardet_1610093646853/work
 cli-helpers @ file:///home/conda/feedstock_root/build_artifacts/cli_helpers_1632758131904/work
@@ -73,6 +73,7 @@ PyQtWebEngine==5.12.1
 pyrsistent @ file:///D:/bld/pyrsistent_1610147004705/work
 PySocks @ file:///D:/bld/pysocks_1610291742246/work
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+python-dotenv @ file:///home/conda/feedstock_root/build_artifacts/python-dotenv_1648162816482/work
 pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
 pytzdata @ file:///home/conda/feedstock_root/build_artifacts/pytzdata_1594644346367/work
 pywin32==301
@@ -101,6 +102,7 @@ trio-websocket @ file:///home/conda/feedstock_root/build_artifacts/trio-websocke
 typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1650370875435/work
 urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1624634538755/work
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1600965781394/work
+webdriver-manager @ file:///home/conda/feedstock_root/build_artifacts/webdriver-manager_1653405622181/work
 webencodings==0.5.1
 widgetsnbextension @ file:///D:/bld/widgetsnbextension_1605475695976/work
 win-inet-pton @ file:///D:/bld/win_inet_pton_1610147566231/work
