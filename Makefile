@@ -2,7 +2,7 @@ setup: ## Install packages via pipenv
 	pipenv install
 
 open: ## Start the Jupyter notebook
-	pipenv run jupyter notebook MissingPersons_DataExtract_Tom_May10.ipynb --config jupyter_notebook_config.py
+	pipenv run jupyter notebook MissingPersons_DataExtract.ipynb --config jupyter_notebook_config.py
 
 %:
 	@true
