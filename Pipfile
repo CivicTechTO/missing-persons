@@ -9,6 +9,7 @@ pandas = "*"
 selenium = "*"
 webdriver-manager = "*"
 tenacity = "*"
+dateparser = "*"
 
 [dev-packages]
 
