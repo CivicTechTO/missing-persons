@@ -1,22 +1,180 @@
 {
-  "Case reference: 2006016699": {
-    "CaseRef": "Case reference: 2006016699",
-    "CaseDesc": "Michael Gadke and Morris Werenko were last seen in around Sault Ste. Marie, Ontario, and were last heard from as they were circling over Goulais Bay in a Cessna C-172 aircraft. The Cessna C-172, had white wings with red tips, a red fuselage with white stripe and white underside. Top of engine cowling was red.",
+  "Case reference: 2020040389": {
+    "CaseRef": "Case reference: 2020040389",
+    "CaseDesc": "On December 15, 1947, Rosella DeLong was seen for the last time leaving her family home in Toronto, Ontario. Rosella intended on travelling to the USA to take a course and to buy equipment to start a weight loss clinic.",
     "CaseType": "Missing",
-    "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2006016699&id=4",
-    "PageImages": [],
+    "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2020040389&id=28",
     "PersonsData": [
       {
-        "Name": "GADKE, Parris Michael",
-        "InfoSection": [
-          {}
+        "Name": "DELONG, Rosella Amanda",
+        "InfoSection": {
+          "Missing since": [
+            "December 15, 1947"
+          ],
+          "Year of birth": [
+            "1918"
+          ],
+          "Age at disappearance": [
+            "29"
+          ],
+          "Gender": [
+            "Female"
+          ],
+          "Bio group": [
+            "White"
+          ],
+          "Eye colour": [
+            "Blue"
+          ],
+          "Hair": [
+            "Brown"
+          ],
+          "Teeth": [
+            "False"
+          ],
+          "Height": [
+            "165cm /  5 ft  5 in"
+          ],
+          "Weight": [
+            "66kg /  146lb"
+          ],
+          "Complexion": [
+            "Light/Fair"
+          ],
+          "Scarf": [
+            "Satin"
+          ],
+          "Coat": [
+            "Seal coat"
+          ],
+          "Hat": [
+            "Black, White"
+          ],
+          "Scar": [
+            "Eyes"
+          ]
+        },
+        "Images": [
+          "https://www.services.rcmp-grc.gc.ca/missing-disparus/showImage;jsessionid=nT0cvqlLkcVxpsvMtS1pvx1vTYw5Yx9WJ2L1GNbbDsNW9hlxvPTp!2139959254?id=29609&thumb=small"
         ]
-      },
+      }
+    ]
+  },
+  "Case reference: 2019049184": {
+    "CaseRef": "Case reference: 2019049184",
+    "CaseDesc": "On September 6, 1973, the body of a well nourished man were found on East Hastings in Vancouver, British Columbia. He recently had cranial surgery due to a head injury and had several old scars on his scalp.  He had extensive scar tissue around his lungs, possibly due to smoking (emphysema) or multiple infections such as pneumonia or tuberculosis.",
+    "CaseType": "Unidentified",
+    "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2019049184&id=13",
+    "PersonsData": [
       {
-        "Name": "WERENKO, Morris",
-        "InfoSection": [
-          {}
-        ]
+        "Name": "Male, 40 - 50",
+        "InfoSection": {
+          "Discovered on": [
+            "September 6, 1973"
+          ],
+          "Est. age": [
+            "40\n             to 50"
+          ],
+          "Gender": [
+            "Male"
+          ],
+          "Bio group": [
+            "White"
+          ],
+          "Eye colour": [
+            "Grey, Green"
+          ],
+          "Hair": [
+            "Brown"
+          ],
+          "Height": [
+            "178cm /  5 ft  10 in"
+          ],
+          "Build": [
+            "Medium"
+          ],
+          "Shirt": [
+            "Green"
+          ],
+          "Pants": [
+            "Brown"
+          ],
+          "Jacket": [
+            "Brown"
+          ]
+        },
+        "Images": []
+      }
+    ]
+  },
+  "Case reference: 2014003731": {
+    "CaseRef": "Case reference: 2014003731",
+    "CaseDesc": "On October 30, 1964 at 1:00 p.m. Murray Hansen left Berens River, Manitoba to go to Black River to deliver some items to a family member. At approximately 3:00 p.m. that day it started to storm and the water on the lake became rough. Mr. Hansen planned to stay in Black River overnight and then return to Berens River. When 5 days passed and he hadn't returned home, his wife began to look for him and discovered that he had never arrived in Black River. On November 3, 1964, Mr. Hansen's boat was found turned over near Bigstone Point and was approximately 100 yards from the shore. Searches were done by air, land and boat but the body of Mr. Hansen was never recovered. Murray Hansen is presumed dead due to drowning.",
+    "CaseType": "Missing",
+    "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2014003731&id=23",
+    "PersonsData": [
+      {
+        "Name": "HANSEN, Murray Oswald Parker",
+        "InfoSection": {
+          "Missing since": [
+            "October 30, 1964"
+          ],
+          "Year of birth": [
+            "1921"
+          ],
+          "Age at disappearance": [
+            "42"
+          ],
+          "Gender": [
+            "Male"
+          ],
+          "Bio group": [
+            "White"
+          ],
+          "Eye colour": [
+            "Blue"
+          ],
+          "Hair": [
+            "Red"
+          ],
+          "Teeth": [
+            "Other, Partial upper dental plate"
+          ],
+          "Height": [
+            "183cm /  6 ft  0 in"
+          ],
+          "Weight": [
+            "75kg /  165lb"
+          ],
+          "Build": [
+            "Medium"
+          ],
+          "Complexion": [
+            "Light/Fair"
+          ],
+          "Wallet": [
+            "Wallet containing money"
+          ],
+          "Watch": [
+            ""
+          ],
+          "Jacket": [
+            "Black",
+            "Brown, Parka"
+          ],
+          "Pants": [
+            "Green",
+            "White, Black, Coveralls",
+            "Grey, Tweed"
+          ],
+          "Boots": [
+            "Rubber, Black"
+          ],
+          "Socks": [
+            "Wool, Grey, Two pairs"
+          ]
+        },
+        "Images": []
       }
     ]
   }
