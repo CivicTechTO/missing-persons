@@ -44,6 +44,8 @@ make install
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
 
+For Github Pages Deployment: https://www.youtube.com/watch?v=2hM5viLMJpA&t=33s
+
 ### 1. Web Scraping - Setting up Jupyter Notebooks & Selenium
 
 The required packages can be found in requirments.txt, bs4 and selenium are the main non-standard packages needed. 
