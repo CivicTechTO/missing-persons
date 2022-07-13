@@ -4,7 +4,7 @@ The goal of this project is to better support the resolution of missing persons 
 
 ## App
 
-https://civictechto.github.io/missing-person
+https://civictechto.github.io/missing-persons/
 
 ## Background
 
