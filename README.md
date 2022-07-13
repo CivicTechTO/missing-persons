@@ -2,6 +2,10 @@
 
 The goal of this project is to better support the resolution of missing persons cases in Canada.
 
+## App
+
+https://civictechto.github.io/missing-person
+
 ## Background
 
 The project steward with journalistic experience from CBC's The Fifth Estate has brought forward the following background:
@@ -43,8 +47,6 @@ make install
 ```
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
-
-For Github Pages Deployment: https://www.youtube.com/watch?v=2hM5viLMJpA&t=33s
 
 ### 1. Web Scraping - Setting up Jupyter Notebooks & Selenium
 
