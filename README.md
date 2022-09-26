@@ -2,9 +2,9 @@
 
 The goal of this project is to better support the resolution of missing persons cases in Canada.
 
-## App
+## React App Temporary URL
 
-https://civictechto.github.io/missing-persons/
+https://thomaslillo.github.io/missing-persons-viewer/
 
 ## Background
 
