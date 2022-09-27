@@ -11,7 +11,7 @@
         ],
         "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2018062818&id=3",
         "Name": "ABUGAZIA, Rafat Mahmoud",
-        "lastCollectionDate":'01-29-2022',
+        "lastCollectionDate":"01-29-2022",
         "Missing since": "April 26, 1993",
         "Images": ["www.image.com/image?id=1234","www.image.com/image?id=1234"],
         "EntryDetails" [                  
@@ -32,7 +32,7 @@
         ],
         "CaseURL": "https://www.services.rcmp-grc.gc.ca/missing-disparus/case-dossier.jsf?case=2018062818&id=3",
         "Name": "ABUGAZIA, Rafat Mahmoud",
-        "lastCollectionDate":'01-29-2022',        
+        "lastCollectionDate":"01-29-2022",
         "Images": ["www.image.com/image?id=1234","www.image.com/image?id=1234"],
         "EntryDetails" [                  
             "Year of birth": "1966",
