@@ -1,0 +1,32 @@
+name: Update Viewer Data
+
+# https://docs.github.com/en/actions/quickstart
+
+on:
+  schedule:
+    # Run every day at 3am ET (7am UTC)
+    # See: https://crontab.guru/#0_7_*_*_*
+    - cron: "0 7 * * *"
+  push:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    # Only run when scheduled, or if push has "[force ci]" in its last commit message.
+    if: "github.event_name == 'schedule' || contains(github.event.head_commit.message, '[force ci]')"
+    steps:
+      - run: echo "Updating the Data Job Now Running..."
+      # - uses: actions/checkout@v3
+
+      # - uses: actions/setup-python@v3
+      #   with:
+      #     python-version: '3.10'
+
+      # - run: pip install --user pipenv
+
+      # - run: make run-code
+
+      # - uses: actions/upload-artifact@v3
+      #   with:
+      #     name: url-list
+      #     path: list.csv
