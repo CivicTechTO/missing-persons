@@ -4,11 +4,6 @@ setup: ## Install packages via pipenv
 open: ## Start the Jupyter notebook
 	pipenv run jupyter notebook MissingPersons_DataExtract.ipynb --config jupyter_notebook_config.py
 
-%:
-	@true
-
-.PHONY: help
-
 help:
 	@echo 'Usage: make <command>'
 	@echo
