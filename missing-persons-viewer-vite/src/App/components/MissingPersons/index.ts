@@ -1,0 +1,1 @@
+export { MissingPersons } from './MissingPersons';
