@@ -1,32 +1,39 @@
+import { Grid } from 'src/shared/components/Layout';
+import { Semibold } from 'src/shared/components/Typography';
+
 export const Frontmatter = () => {
   return (
-    <>
-      <article>
+    <Grid css={{ gap: '1rem', width: '80ch' }}>
+      <Grid as="article" css={{ gap: '1rem' }}>
         <p>
-          Attempt to find missing persons by matching them to the unidentified
-          remains.
+          This application facilitates the identification of missing persons by
+          comparing physical characteristics and personal information with
+          unidentified remains.
         </p>
 
         <p>
-          Filter the list of unidentified remains by clicking on the red
-          buttons.
+          Our technology features advanced algorithms and extensive databases,
+          allowing for quick and efficient searches. The application streamlines
+          the identification process, reducing manual cross-referencing and
+          time-consuming searches.
         </p>
-      </article>
+
+        <Semibold as="p">
+          To filter the list of unidentified remains, click on the missing
+          person.
+        </Semibold>
+      </Grid>
 
       <article>
-        <p>Found a match? Reach out to the authorities.</p>
+        <p>
+          Found a match?{' '}
+          <a href="https://www.rcmp-grc.gc.ca/cont/comment-eng.htm">
+            <Semibold>Reach out to the authorities.</Semibold>
+          </a>
+        </p>
 
-        <p>Don&apos;t call 911 if it&apos;s not an emergency!</p>
-
-        <a href="https://www.rcmp-grc.gc.ca/cont/comment-eng.htm">
-          RCMP Contact Form
-        </a>
-
-        <p>This project is not affiliated with the RCMP.</p>
+        <small>This project is not affiliated with the RCMP.</small>
       </article>
-
-      {/* TODO use actual timestamp data */}
-      <span>Data Last Updated: 2021-09-01</span>
-    </>
+    </Grid>
   );
 };

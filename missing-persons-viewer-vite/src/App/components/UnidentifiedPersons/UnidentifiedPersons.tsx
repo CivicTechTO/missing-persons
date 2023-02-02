@@ -1,4 +1,4 @@
-import { Grid } from 'src/shared/components';
+import { Grid } from 'src/shared/components/Layout';
 
 export const UnidentifiedPersons = () => {
   return (

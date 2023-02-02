@@ -1,4 +1,5 @@
-import { Grid } from 'src/shared/components';
+import { Grid } from 'src/shared/components/Layout';
+import { Bold, CardText, Semibold } from 'src/shared/components/Typography';
 import missingPersons from 'src/shared/data/missing_persons.json';
 
 interface MissingPerson {
@@ -24,74 +25,139 @@ interface MissingPerson {
 }
 
 export const MissingPersons = () => {
-  const missingPersonsList: Array<MissingPerson> =
-    Object.values(missingPersons);
+  const missingPersonsList: Array<MissingPerson> = Object.values(missingPersons)
+    .sort((a: MissingPerson, b: MissingPerson) => {
+      const aName = a.Name.toLowerCase();
+      const bName = b.Name.toLowerCase();
+
+      if (aName < bName) {
+        return -1;
+      }
+
+      if (aName > bName) {
+        return 1;
+      }
+
+      return 0;
+    })
+    .slice(0, 10);
 
   return (
-    <Grid as="section">
+    <Grid css={{ gap: '1rem' }}>
       <h2>Missing Persons</h2>
 
-      {missingPersonsList.map((missingPerson) => {
-        const {
-          'Age at disappearance': ageAtDisappearance,
-          Build: build,
-          CaseDesc: caseDesc,
-          CaseRef: caseRef,
-          CaseType: caseType,
-          CaseURL: caseURL,
-          Complexion: complexion,
-          'Eye colour': eyeColour,
-          Gender: gender,
-          Hair: hair,
-          Height: height,
-          Images: images,
-          MatchedUnidentified: matchedUnidentified,
-          'Missing since': missingSince,
-          Name: name,
-          PersonID: personID,
-          Teeth: teeth,
-          Weight: weight,
-          'Year of birth': yearOfBirth,
-        } = missingPerson;
+      <Grid as="section" css={{ gap: '1rem' }}>
+        {missingPersonsList.map((missingPerson) => {
+          const {
+            'Age at disappearance': ageAtDisappearance,
+            Build: build,
+            CaseDesc: caseDesc,
+            CaseRef: caseRef,
+            CaseURL: caseURL,
+            Complexion: complexion,
+            'Eye colour': eyeColour,
+            Gender: gender,
+            Hair: hair,
+            Height: height,
+            Images: images,
+            MatchedUnidentified: matchedUnidentified,
+            'Missing since': missingSince,
+            Name: name,
+            PersonID: personID,
+            Teeth: teeth,
+            Weight: weight,
+            'Year of birth': yearOfBirth,
+          } = missingPerson;
 
-        return (
-          <article key={personID}>
-            <section>
-              <h3>{name}</h3>
-              {caseRef}
+          // console.log({ caseURL, images, matchedUnidentified });
 
-              <img
-                src="https://thispersondoesnotexist.com/image"
-                alt={`A photo of ${name}`}
-                style={{ width: '300px', height: '300px' }}
-              />
-              <p>Missing Since: {missingSince}</p>
-              <p>Age at disappearance: {ageAtDisappearance}</p>
-              <p>{caseDesc}</p>
-            </section>
+          return (
+            <Grid
+              as="article"
+              key={personID}
+              css={{
+                border: '1px solid black',
+                padding: '1rem',
+                width: 'max-content',
+                height: 'max-content',
+                gap: '1rem',
+              }}
+            >
+              <Grid as="section" css={{ gap: '1rem' }}>
+                <span>
+                  <h3>{name}</h3>
+                  <CardText as="a" href={caseURL}>
+                    <Semibold>{caseRef}</Semibold>
+                  </CardText>
+                </span>
 
-            <section>
-              <h4>Details</h4>
+                {images && images.length > 0 && (
+                  <img
+                    src={images?.[0]}
+                    alt={`A photo of ${name}`}
+                    style={{
+                      width: '250px',
+                      height: '100%',
+                      objectFit: 'cover',
+                      justifySelf: 'center',
+                    }}
+                    loading="lazy"
+                  />
+                )}
 
-              <p>Birth Year: {yearOfBirth || 'N/A'}</p>
+                <span>
+                  <CardText as="p">
+                    <Bold>Missing Since:</Bold> {missingSince}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Age at disappearance:</Bold> {ageAtDisappearance}
+                  </CardText>
+                </span>
 
-              <div>
-                <p>Sex: {gender || 'N/A'}</p>
-                <p>Height: {height || 'N/A'}</p>
-                <p>Weight: {weight || 'N/A'}</p>
-              </div>
+                <CardText as="p">{caseDesc}</CardText>
+              </Grid>
 
-              <div>
-                <p>Build: {build || 'N/A'}</p>
-                <p>Complexion: {complexion || 'N/A'}</p>
-                <p>Eye Colour: {eyeColour || 'N/A'}</p>
-                <p>Hair Colour: {hair || 'N/A'}</p>
-                <p>Teeth: {teeth || 'N/A'}</p>
-              </div>
-            </section>
-          </article>
-        );
-      })}
+              <section>
+                <h4>Details</h4>
+
+                <CardText as="p">
+                  <Bold>Birth Year:</Bold> {yearOfBirth || 'N/A'}
+                </CardText>
+
+                <div>
+                  <CardText as="p">
+                    <Bold>Sex:</Bold> {gender || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Height:</Bold> {height || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Weight:</Bold> {weight || 'N/A'}
+                  </CardText>
+                </div>
+
+                <div>
+                  <CardText as="p">
+                    <Bold>Build:</Bold> {build || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Complexion:</Bold> {complexion || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Eye Colour:</Bold> {eyeColour || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Hair Colour:</Bold> {hair || 'N/A'}
+                  </CardText>
+                  <CardText as="p">
+                    <Bold>Teeth:</Bold> {teeth || 'N/A'}
+                  </CardText>
+                </div>
+              </section>
+            </Grid>
+          );
+        })}
+      </Grid>
     </Grid>
   );
 };
