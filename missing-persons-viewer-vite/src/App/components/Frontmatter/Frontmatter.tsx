@@ -12,16 +12,9 @@ export const Frontmatter = () => {
         </p>
 
         <p>
-          Our technology features advanced algorithms and extensive databases,
-          allowing for quick and efficient searches. The application streamlines
-          the identification process, reducing manual cross-referencing and
-          time-consuming searches.
+          This application streamlines the identification process, reducing
+          manual cross-referencing and time-consuming searches.
         </p>
-
-        <Semibold as="p">
-          To filter the list of unidentified remains, click on the missing
-          person.
-        </Semibold>
       </Grid>
 
       <article>
