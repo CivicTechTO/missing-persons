@@ -1,53 +1,28 @@
-import { Grid } from 'src/shared/components/Layout';
-import { Bold, CardText, Semibold } from 'src/shared/components/Typography';
-import missingPersons from 'src/shared/data/missing_persons.json';
+import { useNavigate } from 'react-router-dom';
 
-interface MissingPerson {
-  'Age at disappearance'?: Array<string>;
-  Build?: Array<string>;
-  CaseDesc: string;
-  CaseRef: string;
-  CaseType: string;
-  CaseURL: string;
-  Complexion?: Array<string>;
-  'Eye colour'?: Array<string>;
-  Gender?: Array<string>;
-  Hair?: Array<string>;
-  Height?: Array<string>;
-  Images?: Array<string>;
-  MatchedUnidentified?: Array<string>;
-  'Missing since': Array<string>;
-  Name: string;
-  PersonID: string;
-  Teeth?: Array<string>;
-  Weight?: Array<string>;
-  'Year of birth': Array<string>;
+import { Flex, Grid } from 'src/shared/components/Layout';
+import { Bold, CardText, Semibold } from 'src/shared/components/Typography';
+import { MissingPersonsArray } from 'src/shared/types';
+
+interface MissingPersonsProps {
+  currentPage: number;
+  pageData: MissingPersonsArray;
+  pageSize: number;
 }
 
-export const MissingPersons = () => {
-  const missingPersonsList: Array<MissingPerson> = Object.values(missingPersons)
-    .sort((a: MissingPerson, b: MissingPerson) => {
-      const aName = a.Name.toLowerCase();
-      const bName = b.Name.toLowerCase();
-
-      if (aName < bName) {
-        return -1;
-      }
-
-      if (aName > bName) {
-        return 1;
-      }
-
-      return 0;
-    })
-    .slice(0, 10);
+export const MissingPersons = ({
+  currentPage,
+  pageData,
+  pageSize,
+}: MissingPersonsProps) => {
+  const navigate = useNavigate();
 
   return (
     <Grid css={{ gap: '1rem' }}>
       <h2>Missing Persons</h2>
 
-      <Grid as="section" css={{ gap: '1rem' }}>
-        {missingPersonsList.map((missingPerson) => {
+      <Flex as="section" css={{ gap: '1rem', flexWrap: 'wrap' }}>
+        {pageData.map((missingPerson) => {
           const {
             'Age at disappearance': ageAtDisappearance,
             Build: build,
@@ -60,7 +35,7 @@ export const MissingPersons = () => {
             Hair: hair,
             Height: height,
             Images: images,
-            MatchedUnidentified: matchedUnidentified,
+            // MatchedUnidentified: matchedUnidentified,
             'Missing since': missingSince,
             Name: name,
             PersonID: personID,
@@ -68,8 +43,6 @@ export const MissingPersons = () => {
             Weight: weight,
             'Year of birth': yearOfBirth,
           } = missingPerson;
-
-          // console.log({ caseURL, images, matchedUnidentified });
 
           return (
             <Grid
@@ -91,19 +64,21 @@ export const MissingPersons = () => {
                   </CardText>
                 </span>
 
-                {images && images.length > 0 && (
-                  <img
-                    src={images?.[0]}
-                    alt={`A photo of ${name}`}
-                    style={{
-                      width: '250px',
-                      height: '100%',
-                      objectFit: 'cover',
-                      justifySelf: 'center',
-                    }}
-                    loading="lazy"
-                  />
-                )}
+                <img
+                  src={
+                    images && images?.length > 0
+                      ? images?.[0]
+                      : 'https://via.placeholder.com/250?text=Not+Available'
+                  }
+                  alt={`A photo of ${name}`}
+                  style={{
+                    width: '250px',
+                    height: '250px',
+                    objectFit: 'cover',
+                    justifySelf: 'center',
+                  }}
+                  loading="lazy"
+                />
 
                 <span>
                   <CardText as="p">
@@ -157,7 +132,34 @@ export const MissingPersons = () => {
             </Grid>
           );
         })}
-      </Grid>
+      </Flex>
+
+      <Flex>
+        {currentPage > 1 && (
+          <button
+            type="button"
+            onClick={() => {
+              navigate({
+                search: `?page=${String(currentPage - 1)}`,
+              });
+            }}
+          >
+            Previous Page
+          </button>
+        )}
+        {!(pageData.length > pageSize) && (
+          <button
+            type="button"
+            onClick={() => {
+              navigate({
+                search: `?page=${String(currentPage + 1)}`,
+              });
+            }}
+          >
+            Next Page
+          </button>
+        )}
+      </Flex>
     </Grid>
   );
 };
