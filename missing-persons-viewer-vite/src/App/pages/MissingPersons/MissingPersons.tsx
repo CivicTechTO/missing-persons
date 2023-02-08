@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
 import { Bold, CardText, Semibold } from 'src/shared/components/Typography';
@@ -21,7 +21,7 @@ export const MissingPersons = ({
     <Grid css={{ gap: '1rem' }}>
       <h2>Missing Persons</h2>
 
-      <Flex as="section" css={{ gap: '1rem', flexWrap: 'wrap' }}>
+      <Flex as="section" css={{ gap: '2rem', flexWrap: 'wrap' }}>
         {pageData.map((missingPerson) => {
           const {
             'Age at disappearance': ageAtDisappearance,
@@ -44,24 +44,35 @@ export const MissingPersons = ({
             'Year of birth': yearOfBirth,
           } = missingPerson;
 
+          // Split case number from case reference
+          const caseNumber = caseRef?.split(': ')[1];
+
           return (
             <Grid
-              as="article"
+              as={NavLink}
               key={personID}
+              to={`/missing/${caseNumber}`}
               css={{
                 border: '1px solid black',
                 padding: '1rem',
                 width: 'max-content',
                 height: 'max-content',
                 gap: '1rem',
+                textDecoration: 'none',
+
+                '&:hover': {
+                  backgroundColor: '#F6F4F3',
+                },
               }}
             >
               <Grid as="section" css={{ gap: '1rem' }}>
                 <span>
-                  <h3>{name}</h3>
-                  <CardText as="a" href={caseURL}>
-                    <Semibold>{caseRef}</Semibold>
+                  <CardText as="h3" css={{ color: 'black' }}>
+                    {name}
                   </CardText>
+                  {/* <CardText as="a" href={caseURL}>
+                    <Semibold>{caseRef}</Semibold>
+                  </CardText> */}
                 </span>
 
                 <img
@@ -80,7 +91,7 @@ export const MissingPersons = ({
                   loading="lazy"
                 />
 
-                <span>
+                {/* <span>
                   <CardText as="p">
                     <Bold>Missing Since:</Bold> {missingSince}
                   </CardText>
@@ -89,10 +100,10 @@ export const MissingPersons = ({
                   </CardText>
                 </span>
 
-                <CardText as="p">{caseDesc}</CardText>
+                <CardText as="p">{caseDesc}</CardText> */}
               </Grid>
 
-              <section>
+              {/* <section>
                 <h4>Details</h4>
 
                 <CardText as="p">
@@ -109,8 +120,8 @@ export const MissingPersons = ({
                   <CardText as="p">
                     <Bold>Weight:</Bold> {weight || 'N/A'}
                   </CardText>
-                </div>
-
+                </div> */}
+              {/*
                 <div>
                   <CardText as="p">
                     <Bold>Build:</Bold> {build || 'N/A'}
@@ -128,13 +139,13 @@ export const MissingPersons = ({
                     <Bold>Teeth:</Bold> {teeth || 'N/A'}
                   </CardText>
                 </div>
-              </section>
+              </section> */}
             </Grid>
           );
         })}
       </Flex>
 
-      <Flex>
+      <Flex css={{ gap: '1rem', justifyContent: 'center' }}>
         {currentPage > 1 && (
           <button
             type="button"
