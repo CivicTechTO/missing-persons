@@ -158,7 +158,7 @@ export const MissingPersons = ({
             Previous Page
           </button>
         )}
-        {!(pageData.length > pageSize) && (
+        {pageData.length === pageSize && (
           <button
             type="button"
             onClick={() => {
