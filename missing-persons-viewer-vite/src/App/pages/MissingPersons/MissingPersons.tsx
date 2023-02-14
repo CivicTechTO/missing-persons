@@ -24,24 +24,10 @@ export const MissingPersons = ({
       <Flex as="section" css={{ gap: '2rem', flexWrap: 'wrap' }}>
         {pageData.map((missingPerson) => {
           const {
-            'Age at disappearance': ageAtDisappearance,
-            Build: build,
-            CaseDesc: caseDesc,
             CaseRef: caseRef,
-            CaseURL: caseURL,
-            Complexion: complexion,
-            'Eye colour': eyeColour,
-            Gender: gender,
-            Hair: hair,
-            Height: height,
             Images: images,
-            // MatchedUnidentified: matchedUnidentified,
-            'Missing since': missingSince,
             Name: name,
             PersonID: personID,
-            Teeth: teeth,
-            Weight: weight,
-            'Year of birth': yearOfBirth,
           } = missingPerson;
 
           // Split case number from case reference

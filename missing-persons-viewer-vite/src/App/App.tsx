@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration, useLoaderData } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import { Grid } from 'src/shared/components/Layout';
 import missingPersons from 'src/shared/data/missing_persons.json';
@@ -46,7 +46,6 @@ export const App = () => {
     pageData: MissingPersonsArray;
     pageSize: number;
   };
-  const isMissingPersonsPage = true;
 
   return (
     <Grid css={{ padding: '1rem', gap: '1rem' }}>
@@ -54,16 +53,11 @@ export const App = () => {
       <Header />
       <Frontmatter />
 
-      {/* This is where the magic happens */}
-      {isMissingPersonsPage ? (
-        <MissingPersons
-          currentPage={currentPage}
-          pageData={pageData}
-          pageSize={pageSize}
-        />
-      ) : (
-        <Outlet />
-      )}
+      <MissingPersons
+        currentPage={currentPage}
+        pageData={pageData}
+        pageSize={pageSize}
+      />
     </Grid>
   );
 };

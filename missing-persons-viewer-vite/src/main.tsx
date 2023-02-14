@@ -5,12 +5,23 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'src/shared/styles/global.css';
 
 import { App, loader as appLoader } from './App';
+import { Error } from './App/pages/Error';
+import {
+  UnidentifiedPersons,
+  loader as unidentifiedPersonsLoader,
+} from './App/pages/UnidentifiedPersons';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     loader: appLoader,
+    errorElement: <Error />,
+  },
+  {
+    path: 'missing/:caseNumber',
+    element: <UnidentifiedPersons />,
+    loader: unidentifiedPersonsLoader,
   },
 ]);
 

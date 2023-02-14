@@ -1,1 +1,1 @@
-export { UnidentifiedPersons } from './UnidentifiedPersons';
+export { loader, UnidentifiedPersons } from './UnidentifiedPersons';
