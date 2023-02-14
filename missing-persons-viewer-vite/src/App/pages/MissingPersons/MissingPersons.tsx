@@ -1,8 +1,9 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
-import { Bold, CardText, Semibold } from 'src/shared/components/Typography';
+import { CardText } from 'src/shared/components/Typography';
 import { MissingPersonsArray } from 'src/shared/types';
+import { normalizeName } from 'src/shared/utils';
 
 interface MissingPersonsProps {
   currentPage: number;
@@ -33,6 +34,9 @@ export const MissingPersons = ({
           // Split case number from case reference
           const caseNumber = caseRef?.split(': ')[1];
 
+          // Normalize name
+          const normalizedName = normalizeName(name);
+
           return (
             <Grid
               as={NavLink}
@@ -54,11 +58,8 @@ export const MissingPersons = ({
               <Grid as="section" css={{ gap: '1rem' }}>
                 <span>
                   <CardText as="h3" css={{ color: 'black' }}>
-                    {name}
+                    {normalizedName}
                   </CardText>
-                  {/* <CardText as="a" href={caseURL}>
-                    <Semibold>{caseRef}</Semibold>
-                  </CardText> */}
                 </span>
 
                 <img
@@ -67,7 +68,7 @@ export const MissingPersons = ({
                       ? images?.[0]
                       : 'https://via.placeholder.com/250?text=Not+Available'
                   }
-                  alt={`A photo of ${name}`}
+                  alt={`A photo of ${normalizedName}`}
                   style={{
                     width: '250px',
                     height: '250px',
@@ -76,56 +77,7 @@ export const MissingPersons = ({
                   }}
                   loading="lazy"
                 />
-
-                {/* <span>
-                  <CardText as="p">
-                    <Bold>Missing Since:</Bold> {missingSince}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Age at disappearance:</Bold> {ageAtDisappearance}
-                  </CardText>
-                </span>
-
-                <CardText as="p">{caseDesc}</CardText> */}
               </Grid>
-
-              {/* <section>
-                <h4>Details</h4>
-
-                <CardText as="p">
-                  <Bold>Birth Year:</Bold> {yearOfBirth || 'N/A'}
-                </CardText>
-
-                <div>
-                  <CardText as="p">
-                    <Bold>Sex:</Bold> {gender || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Height:</Bold> {height || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Weight:</Bold> {weight || 'N/A'}
-                  </CardText>
-                </div> */}
-              {/*
-                <div>
-                  <CardText as="p">
-                    <Bold>Build:</Bold> {build || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Complexion:</Bold> {complexion || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Eye Colour:</Bold> {eyeColour || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Hair Colour:</Bold> {hair || 'N/A'}
-                  </CardText>
-                  <CardText as="p">
-                    <Bold>Teeth:</Bold> {teeth || 'N/A'}
-                  </CardText>
-                </div>
-              </section> */}
             </Grid>
           );
         })}
