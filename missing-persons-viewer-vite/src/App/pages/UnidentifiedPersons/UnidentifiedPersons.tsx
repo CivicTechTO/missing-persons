@@ -6,6 +6,7 @@ import missingPersons from 'src/shared/data/missing_persons.json';
 import unidentifiedPersons from 'src/shared/data/unidentified_persons.json';
 import {
   Action,
+  Maybe,
   MissingPerson,
   UnidentifiedPersonsArray,
 } from 'src/shared/types';
@@ -16,16 +17,14 @@ export const loader = ({ params }: Action) => {
   const caseRef = `Case reference: ${caseNumber}`;
 
   // Grab missing person data from dataset by case reference
-  const missingPerson = Object.values(missingPersons).find(
-    (missingPerson) => missingPerson.CaseRef === caseRef,
-  );
+  const missingPerson: Maybe<MissingPerson> = Object.values(
+    missingPersons,
+  ).find((missingPerson) => missingPerson.CaseRef === caseRef);
 
   // Grab unidentified person data from dataset by case reference
   const matchingUnidentifiedPersons = Object.entries(unidentifiedPersons)
     .filter(([key]) => {
-      return (missingPerson as MissingPerson)?.MatchedUnidentified?.includes(
-        key,
-      );
+      return missingPerson?.MatchedUnidentified?.includes(key);
     })
     .map(([, unidentifiedPerson]) => unidentifiedPerson);
 

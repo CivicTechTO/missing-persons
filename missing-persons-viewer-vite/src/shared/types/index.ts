@@ -5,3 +5,4 @@ export type {
   UnidentifiedPersonsArray,
 } from './api';
 export type { Action } from './routing';
+export type { Maybe } from './utils';
