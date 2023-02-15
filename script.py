@@ -27,6 +27,7 @@ import dateparser
 import requests
 from bs4 import BeautifulSoup as bs
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from tenacity import (before_sleep_log, retry, stop_after_attempt, wait_fixed,
@@ -69,10 +70,13 @@ def dl_to_dict(dl_str):
 link = "https://www.services.rcmp-grc.gc.ca/missing-disparus/search-recherche.jsf"
 # Get a chrome driver if there isn't one locally
 service = Service(ChromeDriverManager().install())
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=1920,1080")
 
 
 # #### loop through all the search result pages and collect the URLs
-browser = webdriver.Chrome(service=service)
+browser = webdriver.Chrome(service=service, options=chrome_options)
 browser.get(link)
 time.sleep(2)
 
