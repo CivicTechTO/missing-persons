@@ -45,7 +45,7 @@ make install
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
 
-### 1. Web Scraping the RCMP Database with Python & Selenium
+### Web Scraping the RCMP Database with Python & Selenium
 
 The required packages can be found in requirments.txt, bs4 and selenium are the main non-standard packages needed. 
 
