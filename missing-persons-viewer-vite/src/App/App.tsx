@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import { Grid } from 'src/shared/components/Layout';
 import missingPersons from 'src/shared/data/missing_persons.json';
@@ -49,6 +49,8 @@ export const App = () => {
 
   return (
     <Grid css={{ padding: '1rem', gap: '1rem' }}>
+      {/* Reset scroll position on page change */}
+      <ScrollRestoration />
       <Header />
       <Frontmatter />
 

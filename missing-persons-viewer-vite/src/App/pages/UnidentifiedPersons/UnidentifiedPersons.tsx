@@ -58,6 +58,7 @@ export const UnidentifiedPersons = () => {
 
   return (
     <>
+      {/* Reset scroll position when navigating to page */}
       <ScrollRestoration />
       <Grid as="section" css={{ gap: '1rem', padding: '1rem' }}>
         <Grid>
@@ -84,7 +85,7 @@ export const UnidentifiedPersons = () => {
           loading="lazy"
         />
 
-        <Text as="p" css={{ maxWidth: '80ch' }}>
+        <Text as="p" css={{ maxWidth: '90ch' }}>
           {caseDesc}
         </Text>
 
