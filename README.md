@@ -2,9 +2,9 @@
 
 The goal of this project is to better support the resolution of missing persons cases in Canada.
 
-## React App Temporary URL
+## App URL
 
-https://thomaslillo.github.io/missing-persons-viewer/
+...
 
 ## Background
 
@@ -16,14 +16,11 @@ The project steward with journalistic experience from CBC's The Fifth Estate has
 - very scarce police resources go toward resolving these cases once they're in the system (priority for more urgent cases)
 - the database does not make it easy to compare even the very data within its own system (missing persons and remains)
 - the data that backs the database isn't available as open data
-- :bulb: scraping the data would make it more accessible to various efforts
-- :bulb: building a better front-end may support case closure by improving likelihood of matching missing persons cases to remains
-  - Create a matching tool that limits the possible matches for each unidentified remains record based on things like gender, age, race, location
-- potential future opportunities
-  - various ad-hoc efforts exist for tracking missing persons data (e.g., Facebook groups)
-    - unofficial and create unstructured data (unlike official database)
-    - run by passionate individuals with their own intrinsic motivations
-  - :bulb: there may be ways to help unofficial efforts better integrate with official ones
+
+## The Project
+
+1. Scrape the database regulary and save it in a more accessible format to make it more accessible for various efforts
+2. Build a better front-end to support matching missing persons cases to remains, making it easier for people to identify matches and close cases
 
 ## Usage
 
@@ -48,11 +45,11 @@ make install
 
 Note: If you don't wish to use `pipenv`, just open up `Makefile` and run its commands directly.
 
-### 1. Web Scraping - Setting up Jupyter Notebooks & Selenium
+### 1. Web Scraping the RCMP Database with Python & Selenium
 
 The required packages can be found in requirments.txt, bs4 and selenium are the main non-standard packages needed. 
 
-An easy way to get started is with Anaconda. Anaconda is an open source environment and package manager that comes that comes bundled with Jupyter Notebooks and Python. Anaconda provides a GUI and CLI for creating and managing project environments easily.
+An easy way to get started is with Anaconda. Anaconda is an open source environment and package manager for Python. Anaconda provides a GUI and CLI for creating and managing project environments easily.
 
 A useful intro: https://medium.com/analytics-vidhya/anaconda-101-199c84ca897a
 
@@ -61,18 +58,13 @@ To create an environment with all the required packages you can run the followin
 `
   conda create --name <env_name> --file requirements.txt
 `
+You can run the script.py file in this virtual environment.
 
-You can also download Jupyter Notebooks and use it with the standard Python from the Microsoft Store!
-
-Selenium requires its own special browser - called a driver - to run the instructions you give it in Python. Driver comes in a zip folder, unzip it and change the "driver" variable in the Notebook to identify where it is on your machine.
-
-**Selenium Browser Download:** https://chromedriver.storage.googleapis.com/index.html?path=102.0.5005.27/
 **Anaconda:** https://www.anaconda.com/products/distribution
-**Jupyter Notebook:** https://jupyter.org/install
 
 ## Get Involved
 
-The following is current as of Tue, May 3, 2022. (We expect to run the project for at least one month.)
+The following is current as of Tue, Feb 14, 2023.
 
 - :memo: [read][notes] our **meeting notes**
   - comments are welcome!
