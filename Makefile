@@ -1,8 +1,8 @@
 setup: ## Install packages via pipenv
 	pipenv install
 
-open: ## Start the Jupyter notebook
-	pipenv run jupyter notebook MissingPersons_DataExtract.ipynb --config jupyter_notebook_config.py
+open: ## Run the data scraping script
+	pipenv run python script.py
 
 help:
 	@echo 'Usage: make <command>'
