@@ -21,3 +21,24 @@ export interface MissingPerson {
 }
 
 export type MissingPersonsArray = Array<MissingPerson>;
+
+export interface UnidentifiedPerson {
+  'Discovered on': Array<string>;
+  'Est. age': Array<string>;
+  Gender: Array<string>;
+  'Bio group': Array<string>;
+  Hair: Array<string>;
+  Teeth: Array<string>;
+  Mark: Array<string>;
+  Deformity: Array<string>;
+  Scar: Array<string>;
+  Images: Array<string>;
+  CaseRef: string;
+  CaseDesc: string;
+  CaseType: string;
+  CaseURL: string;
+  Name: string;
+  MatchedRemains: Array<string>;
+}
+
+export type UnidentifiedPersonsArray = Array<UnidentifiedPerson>;
