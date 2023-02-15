@@ -23,7 +23,9 @@ export const loader = ({ params }: Action) => {
   // Grab unidentified person data from dataset by case reference
   const matchingUnidentifiedPersons = Object.entries(unidentifiedPersons)
     .filter(([key]) => {
-      return missingPerson.MatchedUnidentified.includes(key);
+      return (missingPerson as MissingPerson)?.MatchedUnidentified?.includes(
+        key,
+      );
     })
     .map(([, unidentifiedPerson]) => unidentifiedPerson);
 
