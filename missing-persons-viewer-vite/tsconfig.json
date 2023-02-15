@@ -19,6 +19,6 @@
     "outDir": "dist",
     "baseUrl": "./"
   },
-  "include": [".eslintrc.cjs", "src", "vite.config.ts"],
+  "include": [".eslintrc.cjs", "src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
