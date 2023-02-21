@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
+import { Image } from 'src/shared/components/Media';
 import { CardText } from 'src/shared/components/Typography';
 import { MissingPersonsArray } from 'src/shared/types';
 import { normalizeName } from 'src/shared/utils';
@@ -62,20 +63,10 @@ export const MissingPersons = ({
                   </CardText>
                 </span>
 
-                <img
-                  src={
-                    images && images?.length > 0
-                      ? images?.[0]
-                      : 'https://via.placeholder.com/250?text=Not+Available'
-                  }
+                <Image
+                  src={images?.[0]}
                   alt={`A photo of ${normalizedName}`}
-                  style={{
-                    width: '250px',
-                    height: '250px',
-                    objectFit: 'cover',
-                    justifySelf: 'center',
-                  }}
-                  loading="lazy"
+                  css={{ justifySelf: 'center' }}
                 />
               </Grid>
             </Grid>

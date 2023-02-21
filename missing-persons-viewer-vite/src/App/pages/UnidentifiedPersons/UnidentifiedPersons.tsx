@@ -1,6 +1,7 @@
 import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
+import { Image } from 'src/shared/components/Media';
 import { Bold, Semibold, Text } from 'src/shared/components/Typography';
 import missingPersons from 'src/shared/data/missing_persons.json';
 import unidentifiedPersons from 'src/shared/data/unidentified_persons.json';
@@ -196,21 +197,14 @@ export const UnidentifiedPersons = () => {
                   >
                     <Text as="h4">{caseRef}</Text>
 
-                    {/* TODO make image component that falls back to placeholder */}
-                    {/* TODO make THIS image show a cat in place of human remains (for developer sanity) */}
-                    <img
+                    <Image
+                      // Default to a placeholder image in dev (for maintaining developer sanity)
                       src={
-                        import.meta.env.PROD && images?.length > 0
+                        import.meta.env.PROD
                           ? images[0]
-                          : 'https://via.placeholder.com/250?text=Not+Available'
+                          : 'https://placekitten.com/250/250'
                       }
-                      alt=""
-                      style={{
-                        width: '250px',
-                        height: '250px',
-                        objectFit: 'cover',
-                      }}
-                      loading="lazy"
+                      alt="Unidentified remains"
                     />
 
                     <Grid>
