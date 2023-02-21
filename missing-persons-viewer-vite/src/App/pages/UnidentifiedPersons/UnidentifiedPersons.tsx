@@ -61,133 +61,181 @@ export const UnidentifiedPersons = () => {
     <>
       {/* Reset scroll position when navigating to page */}
       <ScrollRestoration />
-      <Grid as="section" css={{ gap: '1rem', padding: '1rem' }}>
-        <Grid>
-          <h2>{normalizedName}</h2>
-
-          <Text as="a" href={caseURL}>
-            <Semibold>{caseRef}</Semibold>
-          </Text>
-          <Text as="small">Missing since: {missingSince}</Text>
-        </Grid>
-
-        <img
-          src={
-            images && images?.length > 0
-              ? images?.[0]
-              : 'https://via.placeholder.com/250?text=Not+Available'
-          }
-          alt={`A photo of ${normalizedName}`}
-          style={{
-            width: '250px',
-            height: '250px',
-            objectFit: 'cover',
+      <Grid
+        as="main"
+        css={{
+          gap: '4rem',
+          padding: '1rem',
+          gridTemplateColumns: 'repeat(autofit, minmax(500px, 1fr))',
+          justifyContent: 'start',
+        }}
+      >
+        <Grid
+          css={{
+            gap: '1rem',
+            gridColumn: '1 / span 1',
+            width: '500px',
+            height: 'max-content',
+            position: 'sticky',
+            top: '1rem',
           }}
-          loading="lazy"
-        />
+        >
+          <Grid as="section">
+            <h1>{normalizedName}</h1>
 
-        <Text as="p" css={{ maxWidth: '90ch' }}>
-          {caseDesc}
-        </Text>
+            <Text as="a" href={caseURL}>
+              <Semibold>{caseRef}</Semibold>
+            </Text>
+            <Text as="small">Missing since: {missingSince}</Text>
+          </Grid>
 
-        <Grid as="section" css={{ gap: '1rem' }}>
-          <Text as="h2">Details</Text>
+          <img
+            src={
+              images && images?.length > 0
+                ? images?.[0]
+                : 'https://via.placeholder.com/250?text=Not+Available'
+            }
+            alt={`A photo of ${normalizedName}`}
+            style={{
+              width: '250px',
+              height: '250px',
+              objectFit: 'cover',
+            }}
+            loading="lazy"
+          />
 
-          <div>
-            <Text as="p">
-              <Bold>Age at disappearance:</Bold> {ageAtDisappearance}
-            </Text>
-            <Text as="p">
-              <Bold>Birth Year:</Bold> {yearOfBirth || 'N/A'}
-            </Text>
-          </div>
+          <Text as="p" css={{ maxWidth: '70ch' }}>
+            {caseDesc}
+          </Text>
 
-          <div>
-            <Text as="p">
-              <Bold>Sex:</Bold> {gender || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Height:</Bold> {height || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Weight:</Bold> {weight || 'N/A'}
-            </Text>
-          </div>
+          <Grid as="article" css={{ gap: '1rem' }}>
+            <Text as="h2">Details</Text>
 
-          <div>
-            <Text as="p">
-              <Bold>Build:</Bold> {build || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Complexion:</Bold> {complexion || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Eye Colour:</Bold> {eyeColour || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Hair Colour:</Bold> {hair || 'N/A'}
-            </Text>
-            <Text as="p">
-              <Bold>Teeth:</Bold> {teeth || 'N/A'}
-            </Text>
-          </div>
+            <section>
+              <Text as="p">
+                <Bold>Age at disappearance:</Bold> {ageAtDisappearance}
+              </Text>
+              <Text as="p">
+                <Bold>Birth Year:</Bold> {yearOfBirth || 'N/A'}
+              </Text>
+            </section>
+
+            <section>
+              <Text as="p">
+                <Bold>Sex:</Bold> {gender || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Height:</Bold> {height || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Weight:</Bold> {weight || 'N/A'}
+              </Text>
+            </section>
+
+            <section>
+              <Text as="p">
+                <Bold>Build:</Bold> {build || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Complexion:</Bold> {complexion || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Eye Colour:</Bold> {eyeColour || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Hair Colour:</Bold> {hair || 'N/A'}
+              </Text>
+              <Text as="p">
+                <Bold>Teeth:</Bold> {teeth || 'N/A'}
+              </Text>
+            </section>
+          </Grid>
         </Grid>
 
-        <Text as="h3">Matching Unidentified Persons</Text>
-        {matchingUnidentifiedPersons.length > 0 ? (
-          <Flex as="section" css={{ gap: '2rem', flexWrap: 'wrap' }}>
-            {matchingUnidentifiedPersons.map((unidentifiedPerson) => {
-              const {
-                CaseDesc: caseDesc,
-                CaseRef: caseRef,
-                CaseURL: caseUrl,
-                'Discovered on': discoveredOn,
-                'Est. age': estimatedAge,
-                Gender: gender,
-              } = unidentifiedPerson;
+        <Grid
+          css={{
+            gridColumn: '2 / span 1',
+            width: '500px',
+            height: 'max-content',
+            gap: '1rem',
+          }}
+        >
+          <Text as="h2">Matching Unidentified Persons</Text>
+          {matchingUnidentifiedPersons.length > 0 ? (
+            <Flex
+              as="section"
+              css={{ gap: '2rem', flexDirection: 'column', flexWrap: 'nowrap' }}
+            >
+              {matchingUnidentifiedPersons.map((unidentifiedPerson) => {
+                const {
+                  CaseDesc: caseDesc,
+                  CaseRef: caseRef,
+                  CaseURL: caseUrl,
+                  'Discovered on': discoveredOn,
+                  'Est. age': estimatedAge,
+                  Gender: gender,
+                  Images: images,
+                } = unidentifiedPerson;
 
-              return (
-                <Grid
-                  key={caseRef}
-                  as="a"
-                  href={caseUrl}
-                  css={{
-                    border: '1px solid black',
-                    padding: '1rem',
-                    gap: '1rem',
-                    textDecoration: 'none',
-                    color: 'black',
-                    width: 'calc(80ch + 1rem)',
+                return (
+                  <Grid
+                    key={caseRef}
+                    as="a"
+                    href={caseUrl}
+                    css={{
+                      border: '1px solid black',
+                      padding: '1rem',
+                      gap: '1rem',
+                      textDecoration: 'none',
+                      color: 'black',
 
-                    '&:hover': {
-                      backgroundColor: '#F6F4F3',
-                    },
-                  }}
-                >
-                  <Text as="h4">{caseRef}</Text>
+                      '&:hover': {
+                        backgroundColor: '#F6F4F3',
+                      },
+                    }}
+                  >
+                    <Text as="h4">{caseRef}</Text>
 
-                  <Grid>
-                    <Text>
-                      <Bold>Estimated age:</Bold> {estimatedAge}
-                    </Text>
+                    {/* TODO make image component that falls back to placeholder */}
+                    {/* TODO make THIS image show a cat in place of human remains (for developer sanity) */}
+                    <img
+                      src={
+                        import.meta.env.PROD && images?.length > 0
+                          ? images[0]
+                          : 'https://via.placeholder.com/250?text=Not+Available'
+                      }
+                      alt=""
+                      style={{
+                        width: '250px',
+                        height: '250px',
+                        objectFit: 'cover',
+                      }}
+                      loading="lazy"
+                    />
 
-                    <Text>
-                      <Bold>Discovered on:</Bold> {discoveredOn}
-                    </Text>
+                    <Grid>
+                      <Text>
+                        <Bold>Estimated age:</Bold> {estimatedAge}
+                      </Text>
 
-                    <Text>
-                      <Bold>Gender:</Bold> {gender}
-                    </Text>
+                      <Text>
+                        <Bold>Discovered on:</Bold> {discoveredOn}
+                      </Text>
+
+                      <Text>
+                        <Bold>Gender:</Bold> {gender}
+                      </Text>
+                    </Grid>
+
+                    <Text css={{ maxWidth: '80ch' }}>{caseDesc}</Text>
                   </Grid>
-
-                  <Text css={{ maxWidth: '80ch' }}>{caseDesc}</Text>
-                </Grid>
-              );
-            })}
-          </Flex>
-        ) : (
-          <Text as="p">No matches available</Text>
-        )}
+                );
+              })}
+            </Flex>
+          ) : (
+            <Text as="p">No matches available</Text>
+          )}
+        </Grid>
       </Grid>
     </>
   );
