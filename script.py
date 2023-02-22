@@ -554,8 +554,8 @@ print(
     f"Reduced to {potential_matches} out of a possible {possible_total_matches} matches ({int(100*potential_matches/possible_total_matches)}%)"
 )
 
-with open("data/missing_lookup.json", "w") as f:
+with open("missing-persons-viewer-vite/src/shared/data/missing_persons.json", "w") as f:
     json.dump(export_missing, f, indent=4)
 
-with open("data/unidentified_lookup.json", "w") as f:
+with open("missing-persons-viewer-vite/src/shared/data/unidentified_persons.json", "w") as f:
     json.dump(export_unidentified, f, indent=4)
