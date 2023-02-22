@@ -2,6 +2,7 @@ name: Build Data
 on:
   schedule:
     - cron:  '0 12 * * 4'
+  workflow_dispatch:
 jobs:
   Build-Data:
     runs-on: ubuntu-latest
