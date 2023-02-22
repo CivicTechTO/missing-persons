@@ -14,22 +14,26 @@ export const loader = ({ request }: Action) => {
   const page = url.searchParams.get('page');
   const currentPage = Number(page) || 1;
 
-  const missingPersonsList: MissingPersonsArray = Object.values(
-    missingPersons,
-  ).sort((a: MissingPerson, b: MissingPerson) => {
-    const aName = a.Name.toLowerCase();
-    const bName = b.Name.toLowerCase();
+  const missingPersonsList: MissingPersonsArray = Object.values(missingPersons)
+    .filter(
+      (missingPerson: MissingPerson) =>
+        missingPerson.MatchedUnidentified &&
+        missingPerson.MatchedUnidentified.length > 0,
+    )
+    .sort((a: MissingPerson, b: MissingPerson) => {
+      const aName = a.Name.toLowerCase();
+      const bName = b.Name.toLowerCase();
 
-    if (aName < bName) {
-      return -1;
-    }
+      if (aName < bName) {
+        return -1;
+      }
 
-    if (aName > bName) {
-      return 1;
-    }
+      if (aName > bName) {
+        return 1;
+      }
 
-    return 0;
-  });
+      return 0;
+    });
 
   const pageData = paginate<MissingPersonsArray>(
     missingPersonsList,
