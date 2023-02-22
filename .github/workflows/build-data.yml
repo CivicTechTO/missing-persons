@@ -12,8 +12,8 @@ jobs:
 
       - name: Install chrome dependencies
         run: | 
-          apt-get update
-          apt-get install -y chromium-browser
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
       
       - name: setup python
         uses: actions/setup-python@v4
