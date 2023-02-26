@@ -22,6 +22,7 @@ This repository has been built with the following technologies:
 ## TODO
 
 - [ ] Change data source to rely on new branch (newest-data)
+- [ ] Yeet former FE code into /dev/null 🌋
 
 ### Missing Persons list view
 
