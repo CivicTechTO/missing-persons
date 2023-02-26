@@ -17,7 +17,7 @@ export const MissingPersons = ({
   pageData,
   pageSize,
 }: MissingPersonsProps) => {
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <Grid css={{ gap: '1rem' }}>
@@ -35,6 +35,7 @@ export const MissingPersons = ({
               type="checkbox"
               name="showOnlyMatching"
               id="showOnlyMatching"
+              checked={searchParams.get('showOnlyMatching') === 'true'}
               onClick={() => {
                 setSearchParams((previous) => {
                   const previousEntries = Object.fromEntries(previous);
