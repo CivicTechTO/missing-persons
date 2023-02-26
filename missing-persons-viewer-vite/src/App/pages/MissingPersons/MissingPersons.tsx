@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
 import { Image } from 'src/shared/components/Media';
@@ -17,7 +17,7 @@ export const MissingPersons = ({
   pageData,
   pageSize,
 }: MissingPersonsProps) => {
-  const navigate = useNavigate();
+  const [, setSearchParams] = useSearchParams();
 
   return (
     <Grid css={{ gap: '1rem' }}>
@@ -79,8 +79,13 @@ export const MissingPersons = ({
           <button
             type="button"
             onClick={() => {
-              navigate({
-                search: `?page=${String(currentPage - 1)}`,
+              setSearchParams((previous) => {
+                const previousEntries = Object.fromEntries(previous);
+
+                return {
+                  ...previousEntries,
+                  page: String(currentPage - 1),
+                };
               });
             }}
           >
@@ -91,8 +96,13 @@ export const MissingPersons = ({
           <button
             type="button"
             onClick={() => {
-              navigate({
-                search: `?page=${String(currentPage + 1)}`,
+              setSearchParams((previous) => {
+                const previousEntries = Object.fromEntries(previous);
+
+                return {
+                  ...previousEntries,
+                  page: String(currentPage + 1),
+                };
               });
             }}
           >

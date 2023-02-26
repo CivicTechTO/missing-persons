@@ -11,14 +11,19 @@ import { MissingPersons } from './pages/MissingPersons';
 export const loader = ({ request }: Action) => {
   const pageSize = 50;
   const url = new URL(request.url);
+
+  const showOnlyMatching = url.searchParams.get('showOnlyMatching') === 'true';
+
   const page = url.searchParams.get('page');
   const currentPage = Number(page) || 1;
 
   const missingPersonsList: MissingPersonsArray = Object.values(missingPersons)
-    .filter(
-      (missingPerson: MissingPerson) =>
-        missingPerson.MatchedUnidentified &&
-        missingPerson.MatchedUnidentified.length > 0,
+    .filter((missingPerson: MissingPerson) =>
+      // Filter out missing persons that don't have any matches, if the user has toggled accordingly
+      showOnlyMatching
+        ? missingPerson.MatchedUnidentified &&
+          missingPerson.MatchedUnidentified.length > 0
+        : true,
     )
     .sort((a: MissingPerson, b: MissingPerson) => {
       const aName = a.Name.toLowerCase();
