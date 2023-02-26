@@ -1,8 +1,8 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
 import { Image } from 'src/shared/components/Media';
-import { CardText } from 'src/shared/components/Typography';
+import { CardText, Text } from 'src/shared/components/Typography';
 import { MissingPersonsArray } from 'src/shared/types';
 import { normalizeName } from 'src/shared/utils';
 
@@ -17,11 +17,42 @@ export const MissingPersons = ({
   pageData,
   pageSize,
 }: MissingPersonsProps) => {
-  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <Grid css={{ gap: '1rem' }}>
       <h2>Missing Persons</h2>
+
+      <section>
+        <Text as="h3"> Filters:</Text>
+        <Flex css={{ gap: '1rem' }}>
+          <Flex
+            as="label"
+            css={{ gap: '1ch', alignItems: 'center' }}
+            htmlFor="showOnlyMatching"
+          >
+            <input
+              type="checkbox"
+              name="showOnlyMatching"
+              id="showOnlyMatching"
+              checked={searchParams.get('showOnlyMatching') === 'true'}
+              onClick={() => {
+                setSearchParams((previous) => {
+                  const previousEntries = Object.fromEntries(previous);
+                  const showOnlyMatching =
+                    previousEntries.showOnlyMatching === 'true';
+
+                  return {
+                    ...previousEntries,
+                    showOnlyMatching: String(!showOnlyMatching),
+                  };
+                });
+              }}
+            />
+            Show only matching
+          </Flex>
+        </Flex>
+      </section>
 
       <Flex as="section" css={{ gap: '2rem', flexWrap: 'wrap' }}>
         {pageData.map((missingPerson) => {
@@ -79,8 +110,13 @@ export const MissingPersons = ({
           <button
             type="button"
             onClick={() => {
-              navigate({
-                search: `?page=${String(currentPage - 1)}`,
+              setSearchParams((previous) => {
+                const previousEntries = Object.fromEntries(previous);
+
+                return {
+                  ...previousEntries,
+                  page: String(currentPage - 1),
+                };
               });
             }}
           >
@@ -91,8 +127,13 @@ export const MissingPersons = ({
           <button
             type="button"
             onClick={() => {
-              navigate({
-                search: `?page=${String(currentPage + 1)}`,
+              setSearchParams((previous) => {
+                const previousEntries = Object.fromEntries(previous);
+
+                return {
+                  ...previousEntries,
+                  page: String(currentPage + 1),
+                };
               });
             }}
           >

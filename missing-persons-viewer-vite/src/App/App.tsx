@@ -11,25 +11,34 @@ import { MissingPersons } from './pages/MissingPersons';
 export const loader = ({ request }: Action) => {
   const pageSize = 50;
   const url = new URL(request.url);
+
+  const showOnlyMatching = url.searchParams.get('showOnlyMatching') === 'true';
+
   const page = url.searchParams.get('page');
   const currentPage = Number(page) || 1;
 
-  const missingPersonsList: MissingPersonsArray = Object.values(
-    missingPersons,
-  ).sort((a: MissingPerson, b: MissingPerson) => {
-    const aName = a.Name.toLowerCase();
-    const bName = b.Name.toLowerCase();
+  const missingPersonsList: MissingPersonsArray = Object.values(missingPersons)
+    .filter((missingPerson: MissingPerson) =>
+      // Filter out missing persons that don't have any matches, if the user has toggled accordingly
+      showOnlyMatching
+        ? missingPerson.MatchedUnidentified &&
+          missingPerson.MatchedUnidentified.length > 0
+        : true,
+    )
+    .sort((a: MissingPerson, b: MissingPerson) => {
+      const aName = a.Name.toLowerCase();
+      const bName = b.Name.toLowerCase();
 
-    if (aName < bName) {
-      return -1;
-    }
+      if (aName < bName) {
+        return -1;
+      }
 
-    if (aName > bName) {
-      return 1;
-    }
+      if (aName > bName) {
+        return 1;
+      }
 
-    return 0;
-  });
+      return 0;
+    });
 
   const pageData = paginate<MissingPersonsArray>(
     missingPersonsList,
