@@ -35,4 +35,4 @@ This repository has been built with the following technologies:
 
 - [ ] Filter missing persons associated with unidentified remains
 - [ ] Search filter unidentified remains
-- [ ] Content warning/opt-in to see images of unidentified remains
+- [x] Content warning/opt-in to see images of unidentified remains
