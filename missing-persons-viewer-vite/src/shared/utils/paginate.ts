@@ -9,7 +9,7 @@ export const paginate = <T extends Array<any>>(
   array: T,
   pageSize: number,
   pageNumber: number,
-) => {
+): Array<T> => {
   // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
   return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 };
