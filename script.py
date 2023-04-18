@@ -11,6 +11,7 @@
 
 # #### Import packages
 
+import datetime
 import glob
 import json
 import re
@@ -41,6 +42,7 @@ MAX_HEIGHT_DIFFERENCE = 15  # cm
 HAIR_SCORE = 0.7
 BIO_SCORE = 0.7
 
+start_time = datetime.datetime.now()
 
 # This function takes in a string of <dl> ... </dl> and converts it into a dictionary
 def dl_to_dict(dl_str):
@@ -553,6 +555,14 @@ possible_total_matches = len(unidentified_remains) * len(missing_persons)
 print(
     f"Reduced to {potential_matches} out of a possible {possible_total_matches} matches ({int(100*potential_matches/possible_total_matches)}%)"
 )
+
+meta = {
+    "updated_at": datetime.now().isoformat(),
+    "time_running": datetime.now() - start_time
+}
+
+with open("missing-persons-viewer-vite/src/shared/data/meta.json", "w") as f:
+    json.dump(meta, f, indent=4)
 
 with open("missing-persons-viewer-vite/src/shared/data/missing_persons.json", "w") as f:
     json.dump(export_missing, f, indent=4)
