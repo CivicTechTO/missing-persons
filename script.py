@@ -558,7 +558,7 @@ print(
 
 meta = {
     "updated_at": datetime.datetime.now().isoformat(),
-    "time_running": datetime.datetime.now() - start_time
+    "time_running": str(datetime.datetime.now() - start_time)
 }
 
 with open("missing-persons-viewer-vite/src/shared/data/meta.json", "w") as f:
