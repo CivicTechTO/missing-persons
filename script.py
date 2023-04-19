@@ -557,7 +557,7 @@ print(
 )
 
 meta = {
-    "updated_at": datetime.now().isoformat(),
+    "updated_at": datetime.datetime.now().isoformat(),
     "time_running": datetime.now() - start_time
 }
 
