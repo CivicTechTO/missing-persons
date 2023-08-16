@@ -17,5 +17,5 @@ export const Image = ({
   alt,
   css,
 }: ImageProps) => {
-  return <BaseImage src={src} alt={alt} css={{ ...css }} loading="lazy" />;
+  return <BaseImage src={src} alt={alt} css={{ ...css }} loading="lazy" target="_blank" rel="noopener noreferrer" />;
 };
