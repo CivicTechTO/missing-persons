@@ -17,21 +17,21 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }} # checkout the repository content
 
-      # - name: Install chrome dependencies
-      #   run: | 
-      #     sudo apt-get update
-      #     sudo apt-get install -y chromium-browser
+      - name: Install chrome dependencies
+        run: | 
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
       
-      # - name: setup python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.10.8' # install the python version needed
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.8' # install the python version needed
 
-      # - name: Install Python dependencies
-      #   uses: py-actions/py-dependency-install@v4
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v4
 
-      # - name: execute py script # run main.py
-      #   run: python script.py
+      - name: execute py script # run main.py
+        run: python script.py
 
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
