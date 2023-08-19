@@ -17,21 +17,21 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }} # checkout the repository content
 
-      - name: Install chrome dependencies
-        run: | 
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
+      # - name: Install chrome dependencies
+      #   run: | 
+      #     sudo apt-get update
+      #     sudo apt-get install -y chromium-browser
       
-      - name: setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10.8' # install the python version needed
+      # - name: setup python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.10.8' # install the python version needed
 
-      - name: Install Python dependencies
-        uses: py-actions/py-dependency-install@v4
+      # - name: Install Python dependencies
+      #   uses: py-actions/py-dependency-install@v4
 
-      - name: execute py script # run main.py
-        run: python script.py
+      # - name: execute py script # run main.py
+      #   run: python script.py
 
       - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
         with:
@@ -55,24 +55,6 @@ jobs:
           # Default: true
           push: origin newest-data --set-upstream --force
 
-      - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+      - uses: peterjgrainger/action-create-branch@v2.2.0
         with:
-          add: '.'
-
-          # The name of the user that will be displayed as the author of the commit.
-          # Default: depends on the default_author input
-          author_name: Github Action Robot
-
-          # The email of the user that will be displayed as the author of the commit.
-          # Default: depends on the default_author input
-          author_email: dontclick@example.com
-
-          # The message for the commit.
-          # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'New data'
-
-          new_branch: newest-data-${{ steps.date.outputs.date }}
-
-          # Whether to push the commit and, if any, its tags to the repo. It can also be used to set the git push arguments (see the paragraph below for more info)
-          # Default: true
-          push: origin newest-data --set-upstream --force
+          branch: 'newest-data-${{ steps.date.outputs.date }}'
