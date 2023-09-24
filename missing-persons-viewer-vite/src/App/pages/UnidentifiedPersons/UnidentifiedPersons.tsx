@@ -1,4 +1,8 @@
-import { ScrollRestoration, useLoaderData } from 'react-router-dom';
+import {
+  ScrollRestoration,
+  useLoaderData,
+  useSearchParams,
+} from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
 import { Image } from 'src/shared/components/Media';
@@ -58,10 +62,13 @@ export const UnidentifiedPersons = () => {
 
   const normalizedName = normalizeName(name);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <>
       {/* Reset scroll position when navigating to page */}
       <ScrollRestoration />
+
       <Grid
         as="main"
         css={{
@@ -84,6 +91,42 @@ export const UnidentifiedPersons = () => {
           <Grid as="section">
             <h1>{normalizedName}</h1>
 
+            <section>
+              <Text as="h3"> Filters:</Text>
+              <Flex css={{ gap: '1rem' }}>
+                {/* Only show unidentified remains if user opts in. */}
+                <Flex
+                  as="label"
+                  css={{ gap: '1ch', alignItems: 'center' }}
+                  htmlFor="showUnidentifiedRemains"
+                >
+                  <input
+                    type="checkbox"
+                    name="showUnidentifiedRemains"
+                    id="showUnidentifiedRemains"
+                    checked={
+                      searchParams.get('showUnidentifiedRemains') === 'true'
+                    }
+                    onClick={() => {
+                      setSearchParams((previous) => {
+                        const previousEntries = Object.fromEntries(previous);
+                        const showUnidentifiedRemains =
+                          previousEntries.showUnidentifiedRemains === 'true';
+
+                        return {
+                          ...previousEntries,
+                          showUnidentifiedRemains: String(
+                            !showUnidentifiedRemains,
+                          ),
+                        };
+                      });
+                    }}
+                  />
+                  Display unidentified remains
+                </Flex>
+              </Flex>
+            </section>
+
             <Text as="a" href={caseURL}>
               <Semibold>{caseRef}</Semibold>
             </Text>
@@ -94,7 +137,7 @@ export const UnidentifiedPersons = () => {
             src={
               images && images?.length > 0
                 ? images?.[0]
-                : 'https://via.placeholder.com/250?text=Not+Available'
+                : 'https://placehold.co/600x400?text=Not+Available'
             }
             alt={`A photo of ${normalizedName}`}
             style={{
@@ -200,9 +243,9 @@ export const UnidentifiedPersons = () => {
                     <Image
                       // Default to a placeholder image in dev (for maintaining developer sanity)
                       src={
-                        import.meta.env.PROD
+                        searchParams.get('showUnidentifiedRemains') === 'true'
                           ? images[0]
-                          : 'https://placekitten.com/250/250'
+                          : 'https://placehold.co/600x400?text=Image+Hidden'
                       }
                       alt="Unidentified remains"
                     />
