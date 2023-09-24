@@ -1,6 +1,7 @@
 import {
   ScrollRestoration,
   useLoaderData,
+  useNavigate,
   useSearchParams,
 } from 'react-router-dom';
 
@@ -64,10 +65,20 @@ export const UnidentifiedPersons = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const navigate = useNavigate();
+
+  const params = new URLSearchParams(searchParams);
+
+  console.log({ params });
+
   return (
     <>
       {/* Reset scroll position when navigating to page */}
       <ScrollRestoration />
+
+      <Text onClick={() => navigate(-1)}>
+        <Bold>{'<'} Back</Bold>
+      </Text>
 
       <Grid
         as="main"
@@ -104,7 +115,7 @@ export const UnidentifiedPersons = () => {
                     type="checkbox"
                     name="showUnidentifiedRemains"
                     id="showUnidentifiedRemains"
-                    checked={
+                    defaultChecked={
                       searchParams.get('showUnidentifiedRemains') === 'true'
                     }
                     onClick={() => {
@@ -133,20 +144,7 @@ export const UnidentifiedPersons = () => {
             <Text as="small">Missing since: {missingSince}</Text>
           </Grid>
 
-          <img
-            src={
-              images && images?.length > 0
-                ? images?.[0]
-                : 'https://placehold.co/600x400?text=Not+Available'
-            }
-            alt={`A photo of ${normalizedName}`}
-            style={{
-              width: '250px',
-              height: '250px',
-              objectFit: 'cover',
-            }}
-            loading="lazy"
-          />
+          <Image src={images?.[0]} alt={`A photo of ${normalizedName}`} />
 
           <Text as="p" css={{ maxWidth: '70ch' }}>
             {caseDesc}
