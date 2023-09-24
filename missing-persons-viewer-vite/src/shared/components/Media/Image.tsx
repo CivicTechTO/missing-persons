@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { styled } from '@stitches/react';
 
 interface ImageProps {
