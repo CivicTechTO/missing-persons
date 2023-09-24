@@ -23,9 +23,6 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
-    defaults:
-      run:
-        working-directory: missing-persons-viewer-vite
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -38,6 +35,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: missing-persons-viewer-vite/package-lock.json
       - name: Install dependencies
         run: npm install
       - name: Build
@@ -48,7 +46,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload dist repository
-          path: './dist'
+          path: './missing-persons-viewer-vite/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
