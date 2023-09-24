@@ -36,7 +36,7 @@ export const MissingPersons = ({
               type="checkbox"
               name="showOnlyMatching"
               id="showOnlyMatching"
-              checked={searchParams.get('showOnlyMatching') === 'true'}
+              defaultChecked={searchParams.get('showOnlyMatching') === 'true'}
               onClick={() => {
                 setSearchParams((previous) => {
                   const previousEntries = Object.fromEntries(previous);
