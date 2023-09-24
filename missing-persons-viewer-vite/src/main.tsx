@@ -13,7 +13,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/missing-persons',
     element: <App />,
     loader: appLoader,
     errorElement: <Error />,
