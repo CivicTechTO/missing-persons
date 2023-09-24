@@ -7,6 +7,10 @@ jobs:
   Build-Data:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
       - name: checkout repo content
         uses: actions/checkout@v3
         with:
@@ -14,10 +18,10 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }} # checkout the repository content
 
       - name: Install chrome dependencies
-        run: | 
+        run: |
           sudo apt-get update
           sudo apt-get install -y chromium-browser
-      
+
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -43,7 +47,7 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'New data'
+          message: 'New data for ${{ steps.date.outputs.date }}'
 
           new_branch: newest-data
 
