@@ -38,7 +38,7 @@ export const MissingPersons = ({
               name="showOnlyMatching"
               id="showOnlyMatching"
               checked={searchParams.get('showOnlyMatching') === 'true'}
-              onClick={() => {
+              onChange={() => {
                 setSearchParams((previous) => {
                   const previousEntries = Object.fromEntries(previous);
                   const showOnlyMatching =
