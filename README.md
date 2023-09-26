@@ -4,7 +4,7 @@ The goal of this project is to better support the resolution of missing persons 
 
 ## App URL
 
-https://rcmp-db-missing-persons.netlify.app/
+https://civictechto.github.io/missing-persons/
 
 ## Background
 
