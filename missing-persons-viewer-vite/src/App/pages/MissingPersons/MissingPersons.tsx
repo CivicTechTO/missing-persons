@@ -73,7 +73,7 @@ export const MissingPersons = ({
             <Grid
               as={NavLink}
               key={personID}
-              to={`/missing/${caseNumber}`}
+              to={caseNumber}
               css={{
                 border: '1px solid black',
                 padding: '1rem',
