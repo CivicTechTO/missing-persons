@@ -13,7 +13,7 @@ export const BaseImage = styled('img', {
 });
 
 export const Image = ({
-  src = 'https://via.placeholder.com/250?text=Not+Available',
+  src = 'https://placehold.co/600x400?text=Not+Available',
   alt,
   css,
 }: ImageProps) => {
