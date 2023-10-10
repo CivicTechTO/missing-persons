@@ -1,7 +1,7 @@
 setup: ## Install packages via pipenv
 	pipenv install
 
-open: ## Run the data scraping script
+run: ## Run the data scraping script
 	pipenv run python script.py
 
 help:
