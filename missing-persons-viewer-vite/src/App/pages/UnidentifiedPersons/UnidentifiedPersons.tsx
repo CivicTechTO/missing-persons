@@ -1,7 +1,6 @@
 import {
   ScrollRestoration,
   useLoaderData,
-  useNavigate,
   useSearchParams,
 } from 'react-router-dom';
 
@@ -65,8 +64,6 @@ export const UnidentifiedPersons = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const navigate = useNavigate();
-
   const params = new URLSearchParams(searchParams);
 
   console.log({ params });
@@ -75,10 +72,6 @@ export const UnidentifiedPersons = () => {
     <>
       {/* Reset scroll position when navigating to page */}
       <ScrollRestoration />
-
-      <Text onClick={() => navigate(-1)}>
-        <Bold>{'<'} Back</Bold>
-      </Text>
 
       <Grid
         as="main"
