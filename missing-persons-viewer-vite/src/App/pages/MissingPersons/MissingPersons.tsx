@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { NavLink, useSearchParams } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';

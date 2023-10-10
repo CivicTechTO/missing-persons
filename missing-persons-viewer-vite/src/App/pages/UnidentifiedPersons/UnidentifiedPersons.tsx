@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { ScrollRestoration, useLoaderData } from 'react-router-dom';
 
 import { Flex, Grid } from 'src/shared/components/Layout';
