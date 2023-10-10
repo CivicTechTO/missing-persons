@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: 'missing/:caseNumber',
+    path: '/missing-persons/:caseNumber',
     element: <UnidentifiedPersons />,
     loader: unidentifiedPersonsLoader,
   },
