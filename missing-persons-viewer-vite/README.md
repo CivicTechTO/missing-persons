@@ -21,8 +21,8 @@ This repository has been built with the following technologies:
 
 ## TODO
 
-- [ ] Change data source to rely on new branch (newest-data)
-- [ ] Yeet former FE code into /dev/null 🌋
+- [x] Change data source to rely on new branch (newest-data)
+- [x] Yeet former FE code into /dev/null 🌋
 
 ### Missing Persons list view
 
@@ -35,4 +35,4 @@ This repository has been built with the following technologies:
 
 - [ ] Filter missing persons associated with unidentified remains
 - [ ] Search filter unidentified remains
-- [ ] Content warning/opt-in to see images of unidentified remains
+- [x] Content warning/opt-in to see images of unidentified remains

@@ -26,6 +26,7 @@ export const MissingPersons = ({
       <section>
         <Text as="h3"> Filters:</Text>
         <Flex css={{ gap: '1rem' }}>
+          {/* Only show missing persons with potentially unidentified remains. */}
           <Flex
             as="label"
             css={{ gap: '1ch', alignItems: 'center' }}
@@ -35,7 +36,7 @@ export const MissingPersons = ({
               type="checkbox"
               name="showOnlyMatching"
               id="showOnlyMatching"
-              checked={searchParams.get('showOnlyMatching') === 'true'}
+              defaultChecked={searchParams.get('showOnlyMatching') === 'true'}
               onClick={() => {
                 setSearchParams((previous) => {
                   const previousEntries = Object.fromEntries(previous);
@@ -49,7 +50,7 @@ export const MissingPersons = ({
                 });
               }}
             />
-            Show only matching
+            Show only if matching remains available
           </Flex>
         </Flex>
       </section>
